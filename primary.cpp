@@ -1,8 +1,9 @@
 #include <iostream>
+#include <cmath> //For round function.
 using namespace std;
 
-float half(float);
-int half(int);
+float halfF(float);
+int halfI(int);
 
 int main() {
 
@@ -10,9 +11,9 @@ int main() {
 	float b = 5.0f;
 	int c = 3;
 
-	cout << half(a) << endl;
-	cout << half(b) << endl;
-	cout << half(c) << endl;
+	cout << halfF(a) << endl;
+	cout << halfF(b) << endl;
+	cout << halfI(c) << endl;
 
 
 
@@ -22,9 +23,9 @@ int main() {
 
 }
 
-//This can be converted into using generic data types to support floats and doubles:
+//This can be converted into using generic data types to support floats and doubles.
 
-float half(float value) {
+float halfF(float value) {
 
 	float result = value / 2.0;
 
@@ -34,9 +35,11 @@ float half(float value) {
 
 //This can be convered to using generic data types and when int, override.
 
-int half(int value) {
+int halfI(int value) {
 
-	int result = ceil(value / 2.0);
+	int result = 0;
+
+	result = round(static_cast<float>(value / 2.0));
 
 	return result;
 
