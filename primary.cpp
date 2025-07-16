@@ -2,8 +2,30 @@
 #include <cmath> //For round function.
 using namespace std;
 
-float halfF(float);
-int halfI(int);
+
+
+template <class Generic> //Generic data type can be used with both floats and doubles
+
+Generic half(Generic value) {
+
+	Generic result = value / 2.0;
+
+	return result;
+
+}
+
+//Overloaded half function with non-templated/explicit data type int:
+
+int half(int value) {
+
+	int result = 0;
+
+	result = round(static_cast<float>(value / 2.0));
+
+	return result;
+
+}
+
 
 int main() {
 
@@ -11,36 +33,14 @@ int main() {
 	float b = 5.0f;
 	int c = 3;
 
-	cout << halfF(a) << endl;
-	cout << halfF(b) << endl;
-	cout << halfI(c) << endl;
+	cout << half(a) << endl;
+	cout << half(b) << endl;
+	cout << half(c) << endl;
 
 
 
 	cout << endl << endl;
 	system("pause");
 	return 0;
-
-}
-
-//This can be converted into using generic data types to support floats and doubles.
-
-float halfF(float value) {
-
-	float result = value / 2.0;
-
-	return result;
-
-}
-
-//This can be convered to using generic data types and when int, override.
-
-int halfI(int value) {
-
-	int result = 0;
-
-	result = round(static_cast<float>(value / 2.0));
-
-	return result;
 
 }
